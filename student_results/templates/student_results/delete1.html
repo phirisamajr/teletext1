@@ -1,0 +1,29 @@
+{% extends 'student_results/base2.html' %}
+{% block content %}
+   <style>
+		 
+	  #delete{
+		  align-items: center;
+	       }
+	  #middled{
+			text-align: center;
+		   }
+	</style>
+      <br>
+      <div class="row" >
+	  <div class="col-md-12" id="middled">
+		<div class="card card-body" id="delete">
+			<p>Una uhakika unataka kumfuta   "{{item}}"?</p>
+
+			<form action="{% url 'deleteStd1' item.id %}" method="POST">								
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'std1_list'%}">Hapana</a>
+				<button class="btn btn-danger">
+					<i class="far fa-trash-alter-fa-lg text-dark float-right">Thibitisha</i>
+				 </button>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

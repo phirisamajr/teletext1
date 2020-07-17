@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Us</title>
+</head>
+
+<body>
+    <style>
+        body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 200px;
+  margin-top: 10px;
+  background-color: darkgray;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  background-color: white;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+    </style>
+    <div class="about-section">
+        <h1>Donate</h1>
+        <p>Donate us any ammount on our projects.</p>
+        <p>Contact us via: Email, mapec@gmail.com or Call us today via +255 716 688 380.</p>
+      </div>
+      
+      <h2 style="text-align:center">Our Programs</h2>
+      <div class="row">
+        <div class="column" >
+          <div class="card">
+            
+            <div class="container">
+              <h2>Child rights</h2>
+              <p class="title">Geita</p>
+              <p>Protection of children and provision of education .</p>
+              <p>join this project</p>
+              <p><button class="button">Donate</button></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            
+            <div class="container">
+              <h2>Environment</h2>
+              <p class="title">Geita</p>
+              <p>Environmental Protecion in Geita region.</p>
+              <p>join this project</p>
+              <p><button class="button">Donate</button></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+
+            <div class="container">
+              <h2>Women</h2>
+              <p class="title">Geita</p>
+              <p>Empowering women on gender equality in Geita region.</p>
+              <p>john this project</p>
+              <p><button class="button">Donate</button></p>
+            </div>
+          </div>
+        </div>
+    </div>
+      </div> 
+</body>
+
+</html> 

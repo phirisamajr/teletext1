@@ -1,0 +1,25 @@
+● skydata
+| 
++---● student_results (app folder)
+|   |
+|   +--● migrations (includes files related to migrations)
+|   |  |
+|   +--● templates
+|   |  |--● student_results
+|   |  |  |-- base.html
+|   |  |  |-- students_form.html
+|   |  |  |-- students_list.html
+|   |  |  |-- saris.html
+|   |  |  |-- dashboard.html
+|   |  |  |-- staff.html
+|   |  |  |-- order.html
+|   |    
+|   |-- models.py
+|   |-- forms.py
+|   |-- urls.py
+|   |-- views.py
+| 
++---● skydata (project folder)
+|   | 
+|   |-- settings.py
+|   |-- urls.py

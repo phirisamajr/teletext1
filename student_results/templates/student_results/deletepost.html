@@ -1,0 +1,28 @@
+{% extends 'student_results/base2.html' %}
+{% block content %}
+   <style>
+		 
+	  #delete{
+		  align-items: center;
+	       }
+	  #middled{
+			text-align: center;
+		   }
+	</style>
+      <br>
+      <div class="row" >
+	  <div class="col-md-12" id="middled">
+		<div class="card card-body" id="delete">
+            <p>Are you sure yo want to delete   this post </p>
+			<form action="{% url 'deletePost' item.id %}" method="POST">								
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'PostPage'%}">No!</a>
+				<button class="btn btn-danger">
+					<i class="far fa-trash-alter-fa-lg text-dark float-right">Yes!</i>
+				 </button>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

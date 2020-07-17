@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>maoni</title>
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  h3{
+    font-family: 'Times New Roman';
+    color: lightslategrey;
+  }
+  .col-md-12
+  {
+    background-color: cornsilk;
+  }
+  h1{
+    align-items: right;
+    font-family: elephant;
+    color: rgb(45, 44, 136);
+  }
+  footer{
+    color: cornflowerblue;
+  }
+  .col-md-4{
+    font-family: cursive;
+  }
+  p{
+    font-family: 'Lucida Casaul';
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'userPage' %}">Home</a>          
+ 
+      </ul>
+    </div>
+    <span class="hello-msg">Welcome, {{request.user}} </span>
+    <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+  </nav>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+ </head>
+ <body>
+  <div class="container">
+   <div class="col-md-8 offset-md-2 mt-4">    
+      {% load crispy_forms_tags %}
+  {% block content %}
+  <div class="row">
+    <div class="col-md-12">		
+      <h1> Maoni</h1>     
+      <br>
+    </div>    
+
+	<div class="col-md-12">		
+		<div class="card card-body">            
+      <h3>{{post.post}}</h3>
+      <p>Imechapwa na {{post.user.username}} tarehe {{post.created}}</p>
+      <br><br>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <input type="submit" value="submit" class="btn btn-outline-success">
+                <br>
+            </form>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <br>
+          		
+            <div class="main-comment-section">             
+              
+            </div>
+          </div>
+
+
+        <div class="col-md-8">	
+          {{ comments.count }} comment{{ comments|pluralize }}
+          {% for comment in comments %}
+          <div class="card card-body">
+            <div class="main-comment-section">            
+             <blockquote class="lockquote">
+            <p class="mb-0">{{ comment.content }}</p>
+            
+            <a href = "{% url 'PostPageDetail' post.id %}" class = " btn text-secondary px-0 ">
+            <footer class="lockquote-footer"> #  <cite title="source Title">{{ comment.user.username|capfirst }}</cite>
+            </footer> 
+          </a>       
+        </blockquote>
+      </div>      
+    </div>
+    <br>
+       {% endfor %}   
+
+      </div>           			
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+    
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+       crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+       crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+       </script>
+ </body>
+
+ </html>

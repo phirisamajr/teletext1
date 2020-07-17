@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>User</title>
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .profile-link{
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  h3{
+    font-family: 'Times New Roman';
+    color: lightslategrey;
+  }
+  .col-md-12
+  {
+    background-color: cornsilk;
+  }
+  h2{
+    align-items: right;
+    font-family: elephant;
+    color: rgb(45, 44, 136);
+  }
+  .profile-pic{
+	  max-width: 50px;
+	  max-height: 50px;
+	  margin: 0px auto;
+	  border-radius: 50%;
+	  margin-top: 10px;
+  }
+	
+	.nav { 
+	float: right;
+	margin-right: 130px;	
+    }
+  .donate { 
+	
+	margin-left: 5px;
+	
+    }
+	.nav1 { 
+	float: right;
+	margin-right: 0px;
+    }
+  body {
+	background: silver;
+	font-size:22px;
+	line-height: 32px;
+	color: #ffffff;
+	word-wrap:break-word !important;
+  font-family: 'Quicksand', sans-serif;
+	margin: 0;
+	padding: 0;
+   }
+  h1 {
+	font-size: 60px;
+	text-align: center;
+	color: #FFF;
+	margin-top: 150px;
+  font-family: 'Russo One', sans-serif;
+	}
+  h1 span {
+	color: #FF4649;
+    }
+  .container {
+	margin: 0 auto;
+    }
+
+  nav {
+	margin: 35px 0;
+  background-color: slategrey;
+  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   }
+  nav ul {
+	padding: 0;
+    margin: 0;
+	list-style: none;
+	position: relative;
+	}	
+  nav ul li {
+	display:inline-block;
+	background-color: slategrey;
+	}
+  nav a {
+	display:block;
+	padding:0 10px;	
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration:none;
+  }
+  nav a:hover { 
+	background-color: #333; 
+   }
+  nav ul ul {
+	display: none;
+	position: absolute; 
+	top: 60px; 	
+  }	
+  nav ul li:hover > ul {
+	display:inherit;
+  }	
+  nav ul ul li {
+	width:230px;
+	float:none;
+	display:list-item;
+	position: relative;
+  }
+  nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:230px;
+   }
+  nav ul ul li {
+	border: 1px solid white;
+    }	
+  li > a:after { content:  ' ▼'; }
+  li > a:only-child:after { content: ''; } 
+
+
+</style>
+<div id="container">
+  <nav>
+      <ul>
+          <li><a class="" href="{% url 'saris_page' %}">Saris</a></li>
+          <li><a class="donate" href="{% url 'donationPage' %}">Donate</a></li>
+          <li><a class="donate" href="{% url 'SearchFriend' %}">Following</a></li>
+          <li><a class="" href="{% url 'profile' %}">Profile</a></li>
+          <li><a class="" href="{% url 'logout' %}">Logout</a></li>
+ <div class="collapse navbar-collapse" id="navbarNav"> 
+  <div class="nav" >
+  <li><a href="#">{{request.user.username}}</a>
+    
+    </div>
+ </div>
+
+     <div class="nav1" >
+    <img class="profile-pic" src="{{request.user.profile.profile_pic.url}}" >
+    </div>    
+   </li>
+  </nav>
+</div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+ </head>
+ <body>
+  <div class="container">
+   <div class="col-md-8 offset-md-2 mt-4">    
+      {% load crispy_forms_tags %}
+  {% block content %}
+  <div class="row">
+    <div class="col-md-12">		
+      <div class="card card-body">
+      <h2> MATANGAZO YA SHULE</h>     
+      </div>
+      <br>
+    </div>    
+    {% for post in posts %}	
+	<div class="col-md-12">		
+		<div class="card card-body">
+      <h4>{{ text }}</h4>            
+      <h3>{{post.post}}</h3>
+      <p>Imechapwa na {{post.user.username}} tarehe {{post.created}}</p>
+      <a href = "{% url 'PostPageDetail' post.id %}" class = " btn text-secondary px-0 ">
+        <i class = "far fa-trash-alter-fa-lg text-info">Toa maoni</i>
+      </a>
+      </div>
+      <br>
+      </div>
+      {% endfor %}            			
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}
+    
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+       crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+       crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+       </script>
+ </body>
+
+ </html>
