@@ -13,7 +13,7 @@ from .decorators import unauthenticated_usered, allowed_users, admin_only, acces
 from django.contrib.auth.models import Group
 from django.forms import modelformset_factory
 from django.contrib.auth import get_user_model
-from tablib import Dataset
+
 
 
 User = get_user_model()
@@ -29,49 +29,6 @@ def home(request):
     friends = User.objects.exclude(id=request.user.id)
     context= {'friends':friends}
     return render(request, 'student_results/dashboard.html', context)
-
-@login_required(login_url='login')
-@admin_only
-def apload_excel(request):
-    if request.method == 'POST':
-        std1_form = Std1form()
-        dataset =Dataset()
-        new_std1 = request.FILES['myfile']
-        
-        if not new_std1.name.endswith('xlsx'):
-            messages.info(request, 'invalid file format')
-            return render(request, 'apload_excel.html')
-
-        imported_data = dataset.load(new_std1.read(), format='xlsx')
-        for data in imported_data:
-            value = Std1(
-                data[0],
-                data[1],
-                data[2],
-                data[3],
-                data[4],
-                data[5],
-                data[6],
-                data[7],
-                data[8],
-                data[9],
-                data[10],
-                data[11],
-                data[12],
-                data[13],
-                data[14],
-                data[14],
-                data[15],
-                data[16],
-                data[16],
-                data[17],
-                data[18],
-                data[19],
-                data[20],
-            )
-            value.save()    
-    context= {}
-    return render(request, 'student_results/apload_excel.html', context)
 
 
 @login_required(login_url='login')

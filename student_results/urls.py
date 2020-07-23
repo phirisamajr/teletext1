@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^about/$', views.aboutPage, name="aboutPage"),
     url(r'^donate/$', views.donationPage, name="donationPage"),
     url(r'^profile/edit_profile/$', views.edit_profile, name="edit_profile"),
-    url(r'^apload_excel/$', views.apload_excel, name="apload_excel"),
+    
 
     
     url(r'^posts/$', views.PostPage, name="PostPage"),
