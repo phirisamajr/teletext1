@@ -220,13 +220,14 @@ class Std5form(forms.ModelForm):
   class Meta:
     model = Std5
     fields = ['user', 'candidate_NO', 'full_name', 'gender', 'grade', 'kiswahili', 'mathematics',
-                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'total', 
+                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'vocational_skills', 'total', 
                 'average', 'position', 'number_of_pupils', 'ranking', 'discriptions']
     labels = {
               "social_studies":"S.Studies",
               "civic_and_moral":"C.Moral",
               "science_and_technology":"S.Technology",
-              "number_of_pupils":"No.Pupils"
+              "number_of_pupils":"No.Pupils",
+              "vocational_skills":"V.skills"
 
                }
 
@@ -234,13 +235,14 @@ class Std6form(forms.ModelForm):
   class Meta:
     model = Std6
     fields = ['user', 'candidate_NO', 'full_name', 'gender', 'grade', 'kiswahili', 'mathematics',
-                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'total', 
+                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'vocational_skills', 'total', 
                 'average', 'position', 'number_of_pupils', 'ranking', 'discriptions']
     labels = {
               "social_studies":"S.Studies",
               "civic_and_moral":"C.Moral",
               "science_and_technology":"S.Technology",
-              "number_of_pupils":"No.Pupils"
+              "number_of_pupils":"No.Pupils",
+              "vocational_skills":"V.skills"
 
                }
 
@@ -249,13 +251,14 @@ class Std7form(forms.ModelForm):
   class Meta:
     model = Std7
     fields = ['user', 'candidate_NO', 'full_name', 'gender', 'grade', 'kiswahili', 'mathematics',
-                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'total', 
+                'social_studies', 'civic_and_moral', 'science_and_technology', 'english', 'vocational_skills', 'total', 
                 'average', 'position', 'number_of_pupils', 'ranking', 'discriptions']
     labels = {
               "social_studies":"S.Studies",
               "civic_and_moral":"C.Moral",
               "science_and_technology":"S.Technology",
-              "number_of_pupils":"No.Pupils"
+              "number_of_pupils":"No.Pupils",
+              "vocational_skills":"V.skills"
 
                }
 
