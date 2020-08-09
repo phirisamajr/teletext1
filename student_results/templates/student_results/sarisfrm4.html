@@ -10,37 +10,71 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  <style>
+    .card{
+      align-items: center;
+      color: burlywood;
+      text-align: center;
+    }
+    table{
+      
+      color: sienna;
+      table-layout: fixed;
+      column-fill: balance;
+      border-color: magenta;
+      outline-color: midnightblue;
+      background-color: seashell;
+      table-layout: inherit;
+      font-family:Tahoma;
+      max-width: 250px;
+      border-collapse: initial;
+      border-radius: 10px;
+     
+      
+    }
+    .col-md-8 {
+      color: cadetblue;
+      background-color: lightpink;
+      
+    }
+    td{
+      border-collapse: initial;
+      border-radius: 5px;
+     
+    }
+   
+  </style>
   </head>
  <body>
 
 <br>
 <div class="row">
-	<div class="col-md-5 offset-md-1 mt-1">
+	<div class="col-md-8 offset-md-2 mt-1">
 		<div class="card card-body">
 
-            <h3 style="text-align: center">Student's Details</h3>            
+            <h4 style="text-align: center">Form Four</h4>            
             {% load crispy_forms_tags %}  
 
           <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %} 
-            <div class="row">         
+            <div class="row">
+              <div class="card card-body">       
               <div class="col">
-                <div class="col-md-14">
-           <tr>
+                <div class="col-md-18">
+                  
+
               <th><input type="text" name="srh" class="form-control" placeholder="Andika namba ya mtahiniwa"></th>
-              </div>
-              </div>
-              <th>
-        <div class="col">
-          <div class="col-md-5">
-          <button type="submit" class="btn btn-info">Search</button>
+            </form> 
+            <br>
+        
+          <button type="submit" class="btn btn-info btn-sm btn-block">Search</button>
           </label> 
         </div>
-        </div>             
-        </form>        	   	          
+        </div>                           	   	          
         </div>
-        <hr>
+      </div>
+
+        <br>
 
         <div>
           {% if messages %}
@@ -55,17 +89,16 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
       <div style="color:rgb(67, 27, 105)">
       {% if sr %}
       {% for k in sr %}
-      <table border ="0px" width="500px">
-
-        <tr>
-          <td>School Name</td>
-          <td>{{k.user.last_name}}</td>
-      </tr>
-
+      <h4>{{k.user.last_name}}</h4>
+      <h4>{{k.created}}</h4>
+      <div class="card card-body">
+      <table border ="2px" width="450px">
+        
       <tr>
         <td>Student Name</td>
         <td>{{ k.full_name }}</td>
       </tr>
+
 
           <tr>
             <td>Candidate No</td>
@@ -75,36 +108,26 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
           <tr>
               <td>Gender</td>
               <td>{{ k.gender }}</td>
-          </tr>                                     
+          </tr>
+        </div>                                  
       </table>
-      <hr>
       {% endfor %}
       {% endif %}
-      </div>
-     </div>
-    </div>
-
-
-    
-	<div class="col-md-5">
-		<div class="card card-body">			
+    <br>
+					
 			<form action="." method="post" enctype="multipart/form-data">
                 {% csrf_token %} 
-                <div class="form-group">
-                  <div class="col-lg-6">
-              <tr>              
+                
+      <tr>              
       </form>
-      <h3>Scores</h3>
-      <div>
-        
-    </div>
-
+   
+   
     <div style="color:rgb(67, 27, 105)">
     {% if sr %}
     {% for k in sr %}
-    <table border ="0px" width="500px">
+    <table border ="1px" width="450px">
         <tr>
-          <td>Lugha</td>
+          <td>Kiswahili</td>
           <td>{{ k.kiswahili }}</td>
         </tr>
 
@@ -114,42 +137,41 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
         </tr>
 
         <tr>
-            <td>Language</td>
-            <td>{{ k.english_language }}</td>
+            <td>English Language</td>
+            <td>{{ k.english_languge }}</td>
         </tr>
 
         <tr>
-            <td>Biology</td>
-            <td>{{ k.biology }}</td>
-        </tr>
-        <tr>
             <td>Geography</td>
             <td>{{ k.geography }}</td>
-            </tr>        
+        </tr>
+        
         <tr>
-          <td>History</td>
-          <td>{{ k.history }}</td>
+          <td>Biology</td>
+          <td>{{ k.biology }}</td>
       </tr>
+
       <tr>
-        <td>Civics</td>
-        <td>{{ k.civics }}</td>
-        </tr>
-        <tr>
-        <td>Chemistry</td>
-        <td>{{ k.chemistry}}</td>
-        </tr>
-         <tr>
-            <td>Physics</td>
-            <td>{{ k.physics }}</td>
-        </tr> 
-        <tr>
-            <td>B/keeping</td>
-            <td>{{ k.bookkeeping }}</td>
-        </tr> 
-        <tr>
-            <td>Commerce</td>
-            <td>{{ k.commerce }}</td>
-        </tr>       
+        <td>History</td>
+        <td>{{ k.history }}</td>
+    </tr>
+    <tr>
+      <td>Civics</td>
+      <td>{{ k.civics }}</td>
+    </tr>
+    <tr>
+      <td>Physics</td>
+      <td>{{ k.physics }}</td>
+    </tr>
+    <tr>
+      <td>Chemistry</td>
+      <td>{{ k.chemistry }}</td>
+    </tr>
+
+    </table>
+  
+     <br>
+        <table border ="1px" width="450px">
         <tr>
           <td>Division</td>
           <td>{{ k.division }}</td>
@@ -158,13 +180,14 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
             <td>Points</td>
             <td>{{ k.points }}</td>
           </tr>
+         
            <tr>
             <td>Position</td>
             <td>{{ k.position }}</td>
             </tr>
             <tr>
-              <td>Number of pupils in class</td>
-              <td>{{ k.number_of_pupils }}</td>
+              <td>Number of pupils</td>
+              <td>{{ k.number_of_students }}</td>
              </tr>
              <tr>
               <td>Comment</td>
@@ -177,6 +200,7 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
     
 	</div>
  </div>
+</div>
 </div>
 </div>
 
