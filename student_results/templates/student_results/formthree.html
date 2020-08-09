@@ -100,34 +100,34 @@
                 <th>Point</th>
                 <th>Post</th>
                 <th>Comment</th>
-                <th><a href = "{% url 'FormfourPage' user.id %}" class="btn btn-outline-info btn-sm btn-block">Add Data</button>	</th>
+                <th><a href = "{% url 'FormthreePage' user.id %}" class="btn btn-outline-info btn-sm btn-block">Add Data</button>	</th>
               </tr>
       
             
               <tbody>
-                {% for formfour in formfours %}
+                {% for formthree in formthrees %}
                  <tr>
-                <td>{{formfour.candidate_NO }}</td>
-                <td>{{formfour.full_name }}</td>
-                <td>{{formfour.kiswahili }}</td>
-                <td>{{formfour.mathematics }}</td>
-                <td>{{formfour.history }}</td> 
-                <td>{{formfour.geography }}</td>
-                <td>{{formfour.biology }}</td>
-                <td>{{formfour.english_languge }}</td>
-                <td>{{formfour.civics }}</td>
-                <td>{{formfour.chemistry }}</td>
-                <td>{{formfour.physics }}</td>               
-                <td>{{formfour.division }}</td>
-                <td>{{formfour.points }}</td>
-                <td>{{formfour.position }}</td>
-                <td>{{formfour.discriptions }}</td>
+                <td>{{formthree.candidate_NO }}</td>
+                <td>{{formthree.full_name }}</td>
+                <td>{{formthree.kiswahili }}</td>
+                <td>{{formthree.mathematics }}</td>
+                <td>{{formthree.history }}</td> 
+                <td>{{formthree.geography }}</td>
+                <td>{{formthree.biology }}</td>
+                <td>{{formthree.english_languge }}</td>
+                <td>{{formthree.civics }}</td>
+                <td>{{formthree.chemistry }}</td>
+                <td>{{formthree.physics }}</td>               
+                <td>{{formthree.division }}</td>
+                <td>{{formthree.points }}</td>
+                <td>{{formthree.position }}</td>
+                <td>{{formthree.discriptions }}</td>
                   <td>
                     
-                  <a href = "{% url 'updateFormFour' formfour.id %}" class = " btn text-secondary px-0 ">
+                  <a href = "{% url 'updateFormThree' formthree.id %}" class = " btn text-secondary px-0 ">
                     <i class = "far fa-trash-alter-fa-lg text-info">Edit</i>
                   </a>
-                    <form action="{% url 'deleteFormFour' formfour.id %}" methods="post" class="d-inline">
+                    <form action="{% url 'deleteFormThree' formthree.id %}" methods="post" class="d-inline">
                        {% csrf_token %}                 
                       <button class="submit btn">
                          <i class="far fa-trash-alter-fa-lg text-danger float-right">Delete</i>
